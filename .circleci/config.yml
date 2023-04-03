@@ -1,92 +1,27 @@
-#version: 2.1
-#
-#jobs:
-#  test:
-#    docker:
-#      - image: cimg/node:18.15.0
-#    steps:
-#      - checkout
-#      - restore_cache:
-#          keys:
-#            - node-deps-v1-{{ .Branch }}-{{checksum "package-lock.json"}}
-#      - run:
-#          name: install packages
-#          command: npm install
-#      - save_cache:
-#          key: node-deps-v1-{{ .Branch }}-{{checksum "package-lock.json"}}
-#          paths:
-#            - ~/.npm
-#      - run:
-#          name: Run Tests
-#          command: npm run test
-#
-#
-#workflows:
-#  test_my_app:
-#    jobs:
-#      - test
+version: 2.1
 
-#version: 2.1
-#orbs:
-#  node: circleci/node@5.1.0
-#
-#jobs:
-#  build:
-#    docker:
-#      - image: circleci/node:14.17.0
-#    steps:
-#      - checkout
-#      - run:
-#          name: Install packages
-#          command: |
-#            npm install
-#      - run:
-#          name: Test
-#          command: |
-#            npm run test
-#
-# Windows-compatible CircleCI configuration file
-
-#version: 2.1
-#
-#
-#jobs:
-#  build:
-#    docker:
-#      - image: circleci/node:18.13.0
-#
-#    working_directory: ~/repo
-#    steps:
-#      - checkout
-#      - run: npm install
-#      - run: npm test
-
-version: 2
 jobs:
-  build:
+  test:
     docker:
-      - image: circleci/node:10.15.3
-    environment:
-      DEV_DB_URL: $DEV_DB_URL
-      DB_NAME: $DB_NAME
-      DB_USER: $DB_USER
-      DB_PASSWORD: $DB_PASSWORD
-      DB_HOST: $DB_HOST
-      DB_PORT: $DB_PORT
-      DB_PORT_EXPOSE: $DB_PORT_EXPOSE
-      CLIENT_URL: $CLIENT_URL
-      PORT: $PORT
-      HOST: $HOST
-      SESSION_SECRET: $SESSION_SECRET
-      SECRET_TOKEN: $SECRET_TOKEN
-      RESET_SECRET: $RESET_SECRET
-      RESET_USER_EMAIL: $RESET_USER_EMAIL
-      RESET_USER_PASSWORD: $RESET_USER_PASSWORD
-      SENDER_EMAIL: $SENDER_EMAIL
-      USER_EMAIL: $USER_EMAIL
-      USER_PASS: $USER_PASS
+      - image: cimg/node:18.15.0
     steps:
       - checkout
-      - run: echo "Hello, World!"
-      - run: npm install
-      - run: npm run test
+      - restore_cache:
+          keys:
+            - node-deps-v1-{{ .Branch }}-{{checksum "package-lock.json"}}
+      - run:
+          name: install packages
+          command: npm install
+      - save_cache:
+          key: node-deps-v1-{{ .Branch }}-{{checksum "package-lock.json"}}
+          paths:
+            - ~/.npm
+      - run:
+          name: Run Tests
+          command: npm run test
+
+workflows:
+  test_my_app:
+    jobs:
+      - test
+

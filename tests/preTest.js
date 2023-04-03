@@ -1,11 +1,10 @@
-const db= require('../src/database/models');
+const db = require('../src/database/models');
 
 const User = db.users;
 async function resetData() {
-    await User.destroy({
-        where: {},
-        truncate: false,
-        cascade:true
-    });
+  await User.destroy({
+    where: {},
+    truncate: true,
+  });
 }
 resetData();
