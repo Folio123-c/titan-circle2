@@ -45,17 +45,16 @@
 #          command: |
 #            npm run test
 #
+# Windows-compatible CircleCI configuration file
+
 version: 2.1
+
 jobs:
-  test:
+  build:
     docker:
-      - image: circleci/node:14
+      - image: circleci/node:latest
+    working_directory: ~/repo
     steps:
       - checkout
       - run: npm install
       - run: npm run test
-workflows:
-  version: 2
-  test:
-    jobs:
-      - test
