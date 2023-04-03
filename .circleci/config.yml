@@ -89,4 +89,4 @@ jobs:
       - checkout
       - run: echo "Hello, World!"
       - run: npm install
-      - run: npm test
+      - run: npm run test
