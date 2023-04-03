@@ -87,7 +87,7 @@ jobs:
       USER_PASS: $USER_PASS
     steps:
       - checkout
-      - run: npm install
+      - run: echo "Hello, World!"
   test:
     docker:
       - image: circleci/node:10.15.3
@@ -114,3 +114,4 @@ jobs:
       - checkout
       - run: npm install
       - run: npm test
+

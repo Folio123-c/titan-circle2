@@ -78,6 +78,10 @@
     "nodemon": "^2.0.21",
     "supertest": "^6.3.3"
   },
+  "optionalDependencies": {
+    "fsevents": "*"
+  },
+
   "directories": {
     "test": "tests"
   },
