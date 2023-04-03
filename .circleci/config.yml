@@ -47,16 +47,71 @@
 #
 # Windows-compatible CircleCI configuration file
 
-version: 2.1
+#version: 2.1
+#
+#
+#jobs:
+#  build:
+#    docker:
+#      - image: circleci/node:18.13.0
+#
+#    working_directory: ~/repo
+#    steps:
+#      - checkout
+#      - run: npm install
+#      - run: npm test
 
-
+version: 2
 jobs:
   build:
     docker:
-      - image: circleci/node:18.13.0
-
-    working_directory: ~/repo
+      - image: circleci/node:10.15.3
+    environment:
+      DEV_DB_URL: $DEV_DB_URL
+      DB_NAME: $DB_NAME
+      DB_USER: $DB_USER
+      DB_PASSWORD: $DB_PASSWORD
+      DB_HOST: $DB_HOST
+      DB_PORT: $DB_PORT
+      DB_PORT_EXPOSE: $DB_PORT_EXPOSE
+      CLIENT_URL: $CLIENT_URL
+      PORT: $PORT
+      HOST: $HOST
+      SESSION_SECRET: $SESSION_SECRET
+      SECRET_TOKEN: $SECRET_TOKEN
+      RESET_SECRET: $RESET_SECRET
+      RESET_USER_EMAIL: $RESET_USER_EMAIL
+      RESET_USER_PASSWORD: $RESET_USER_PASSWORD
+      SENDER_EMAIL: $SENDER_EMAIL
+      USER_EMAIL: $USER_EMAIL
+      USER_PASS: $USER_PASS
+    steps:
+      - checkout
+      - run: echo "Hello, World!"
+  test:
+    docker:
+      - image: circleci/node:10.15.3
+    environment:
+      DEV_DB_URL: $DEV_DB_URL
+      DB_NAME: $DB_NAME
+      DB_USER: $DB_USER
+      DB_PASSWORD: $DB_PASSWORD
+      DB_HOST: $DB_HOST
+      DB_PORT: $DB_PORT
+      DB_PORT_EXPOSE: $DB_PORT_EXPOSE
+      CLIENT_URL: $CLIENT_URL
+      PORT: $PORT
+      HOST: $HOST
+      SESSION_SECRET: $SESSION_SECRET
+      SECRET_TOKEN: $SECRET_TOKEN
+      RESET_SECRET: $RESET_SECRET
+      RESET_USER_EMAIL: $RESET_USER_EMAIL
+      RESET_USER_PASSWORD: $RESET_USER_PASSWORD
+      SENDER_EMAIL: $SENDER_EMAIL
+      USER_EMAIL: $USER_EMAIL
+      USER_PASS: $USER_PASS
     steps:
       - checkout
       - run: npm install
       - run: npm test
+
