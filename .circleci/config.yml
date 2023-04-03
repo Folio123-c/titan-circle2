@@ -30,7 +30,7 @@ orbs:
   node: circleci/node@5.1.0
 
 jobs:
-  build:
+  test:
     docker:
       - image: circleci/node:14.17.0
     steps:
