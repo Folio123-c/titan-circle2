@@ -1,0 +1,42 @@
+paths:
+  /api/v1/user/signup:
+    post:
+      summary: Email Verification
+      tags:
+        - User
+      produces:
+        - application/json
+      consumes:
+        - application/json
+      parameters:
+        - in: body
+          name: user
+          schema:
+            type: object
+            properties:
+              fullname:
+                type: string
+                default: testUser
+                required: true
+                description: username
+              email:
+                type: string
+                default: testUser@gmail.com
+                required: true
+                description: email
+              password:
+                type: string
+                default: Password@123
+                required: true
+                description: product price
+              confirmPassword:
+                type: string
+                default: Password@123
+                required: true
+                description: product price
+      responses:
+        201:
+          schema:
+            type: object
+        500:
+          description: Something went wrong, try again

@@ -1,0 +1,17 @@
+paths:
+  #Simple example for product register
+  /api/v1/user/logout:
+    post:
+      summary: User logout
+      tags:
+        - User
+      produces:
+        - application/json
+      consumes:
+        - application/json
+      responses:
+        200:
+          schema:
+            type: object
+        500:
+          description: Something went wrong, try again
