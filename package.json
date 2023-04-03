@@ -1,0 +1,83 @@
+{
+  "name": "e-comm-team-techtitans-bn",
+  "version": "1.0.0",
+  "description": "<!-- TABLE OF CONTENTS -->",
+  "main": "lib/server.js",
+  "scripts": {
+    "start": "npm run build && npm run migrate && npm run seed:dev && node lib/server.js",
+    "dev": "npm run build && nodemon lib/server.js",
+    "build": "babel src --out-dir docs --out-dir lib",
+    "lint:fix": "eslint src --fix --cache",
+    "pretest": "node tests/preTest.js",
+    "test": "jest --detectOpenHandles",
+    "coverage": "jest --collect-coverage",
+    "migration": "npm run migrate:undo && npm run migrate",
+    "migrate": "npx sequelize-cli db:migrate",
+    "migrate:undo": "npx sequelize-cli db:migrate:undo:all",
+    "migrate:dev": "npm migrate:dev:undo && npm migrate:dev:all",
+    "migrate:dev:all": "npx sequelize-cli db:migrate",
+    "migrate:dev:undo": "npx sequelize-cli db:migrate:undo:all",
+    "seed:dev": "npm run seed:dev:undo && npm run seed:dev:do",
+    "seed:dev:do": "npx sequelize-cli db:seed:all",
+    "seed:dev:undo": "npx sequelize-cli db:seed:undo:all",
+    "seed:test": "npm seed:test:undo && npm seed:test:do",
+    "seed:test:do": "npx sequelize-cli db:seed:all",
+    "seed:test:undo": "npx sequelize-cli db:seed:undo:all"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/atlp-rwanda/e-comm-team-techtitans-bn.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/atlp-rwanda/e-comm-team-techtitans-bn/issues"
+  },
+  "homepage": "https://github.com/atlp-rwanda/e-comm-team-techtitans-bn#readme",
+  "dependencies": {
+    "@babel/node": "^7.20.7",
+    "@babel/register": "^7.21.0",
+    "@jest/globals": "^29.5.0",
+    "axios": "^1.3.4",
+    "bcrypt": "^5.1.0",
+    "cookie-parser": "^1.4.6",
+    "cors": "^2.8.5",
+    "dotenv": "^16.0.3",
+    "express": "^4.18.2",
+    "express-generator": "^4.16.1",
+    "fs": "^0.0.1-security",
+    "handlebars": "^4.7.7",
+    "js-yaml": "^4.1.0",
+    "jsonwebtoken": "^9.0.0",
+    "nodemailer": "^6.9.1",
+    "nodemailer-express-handlebars": "^6.1.0",
+    "nodemon": "^2.0.21",
+    "pg": "^8.10.0",
+    "sequelize": "^6.29.3",
+    "sequelize-cli": "^6.6.0",
+    "supertest": "^6.3.3",
+    "swagger-jsdoc": "^6.2.8",
+    "swagger-ui-express": "^4.6.2",
+    "uuidv4": "^6.2.13",
+    "yamljs": "^0.3.0"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.21.0",
+    "@babel/core": "^7.21.3",
+    "@babel/plugin-transform-runtime": "^7.21.0",
+    "@babel/preset-env": "^7.20.2",
+    "@babel/preset-modules": "^0.1.5",
+    "coveralls": "^3.1.1",
+    "eslint": "^8.36.0",
+    "eslint-config-airbnb-base": "^15.0.0",
+    "eslint-plugin-import": "^2.27.5",
+    "fs": "^0.0.1-security",
+    "jest": "^29.5.0",
+    "nodemon": "^2.0.21",
+    "supertest": "^6.3.3"
+  },
+  "directories": {
+    "test": "tests"
+  },
+  "keywords": []
+}
