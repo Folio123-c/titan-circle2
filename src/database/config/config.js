@@ -62,7 +62,7 @@ module.exports = {
     logging: false,
     dialectOptions: {
       ssl: {
-        require: true,
+        require: false,
         rejectUnauthorized: false,
       },
     },
@@ -78,7 +78,7 @@ module.exports = {
     logging: false,
     dialectOptions: {
       ssl: {
-        require: true,
+        require: false,
         rejectUnauthorized: false,
       },
     },
@@ -88,8 +88,8 @@ module.exports = {
     dialect: 'postgres',
     dialectOptions: {
       ssl: {
-        require: true,
-        rejectUnauthorized: true,
+        require: false,
+        rejectUnauthorized: false,
       },
     },
   },
@@ -98,8 +98,8 @@ module.exports = {
     dialect: 'postgres',
     dialectOptions: {
       ssl: {
-        require: true,
-        rejectUnauthorized: true,
+        require: false,
+        rejectUnauthorized: false,
       },
     },
   },
