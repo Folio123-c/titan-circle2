@@ -7,6 +7,8 @@
     "start": "node lib/server.js",
     "dev": "npm run build && nodemon lib/server.js",
     "build": "babel src --out-dir docs --out-dir lib",
+    "postinstall": "patch-package",
+    "heroku-postbuild": "patch-package",
     "lint:fix": "eslint src --fix --cache",
     "pretest": "node tests/preTest.js",
     "test": "jest --detectOpenHandles",
@@ -52,6 +54,7 @@
     "nodemailer": "^6.9.1",
     "nodemailer-express-handlebars": "^6.1.0",
     "nodemon": "^2.0.21",
+    "patch-package": "^6.5.1",
     "pg": "^8.10.0",
     "sequelize": "^6.29.3",
     "sequelize-cli": "^6.6.0",
@@ -78,9 +81,6 @@
   },
   "directories": {
     "test": "tests"
-  },
-  "engines": {
-    "node": "18.13.0"
   },
   "keywords": []
 }
