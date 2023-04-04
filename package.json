@@ -80,7 +80,7 @@
     "test": "tests"
   },
   "engines": {
-    "node": "18.x"
+    "node": "18.13.0"
   },
   "keywords": []
 }
